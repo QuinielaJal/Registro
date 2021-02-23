@@ -218,7 +218,7 @@ function getRandomInt(min, max) {
 }
 
 function costoactual(){
-    if (!res.join("\xa0\xa0").includes("_")){
+    if (true){
         let aux2 = 1;
         for (var i=0;i<9;i++){
              aux2*= res[i].length;
