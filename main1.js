@@ -178,15 +178,13 @@ function allowcombination(){
         document.getElementById("checkcombinaciones").style.backgroundColor = "rgb(0,117,255)";
         document.getElementById("checkcombinaciones").style.border = "black solid 1px";
         document.getElementById("checkcombinaciones").style.color = "white";
-        document.getElementById("checkcombinaciones").style.fontWeight = "bold";
     }
     else
     {
         combinations= false;
         document.getElementById("checkcombinaciones").style.backgroundColor = "rgb(255,255,255,0.35)";
-        document.getElementById("checkcombinaciones").style.border = "#afafaf solid 1px";
+        document.getElementById("checkcombinaciones").style.border = "#777777 solid 1px";
         document.getElementById("checkcombinaciones").style.color = "#777777";
-        document.getElementById("checkcombinaciones").style.fontWeight = "";
         clean();
     }
 }
