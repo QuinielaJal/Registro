@@ -161,10 +161,10 @@ h2,h3{
     font-size: small;
     box-shadow: 1px 1px 3px black;
     font-weight: bold;
-    margin-right: 10px;
 }
 
 #checkcombinaciones{
+    margin-left: 10px;
     height: 25px;
     background: rgb(255,255,255,0.7);  
     border-radius: 4px;
