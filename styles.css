@@ -160,7 +160,7 @@ h2,h3{
 
 #checkcombinaciones{
     height: 28px;
-    width: 90%;
+    width: 78%;
     background: rgb(255,255,255,0.35);  
     border-radius: 4px;
     padding: 3px 0px 3px;
@@ -169,7 +169,7 @@ h2,h3{
     text-align: center;
     margin-right: 10px;
     border: solid 1px #777777;
-    color: #656565; 
+    color: #777777; 
 }
 
 #undo{
