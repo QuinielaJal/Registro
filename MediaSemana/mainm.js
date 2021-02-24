@@ -5,7 +5,7 @@ let combinations = false;
 var aux;
 
 function start(){
-    document.getElementById("checkcombinaciones").checked = false;
+    //document.getElementById("checkcombinaciones").checked = false;
     recovername();
     display = document.getElementById("display");
     let width = document.getElementsByClassName('quiniela')[0].offsetWidth;
