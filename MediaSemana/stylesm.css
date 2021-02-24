@@ -161,6 +161,7 @@ h2,h3{
     font-size: small;
     box-shadow: 1px 1px 3px black;
     font-weight: bold;
+    margin-right: 10px;
 }
 
 #checkcombinaciones{
@@ -171,7 +172,6 @@ h2,h3{
     font-size: small;
     box-shadow: 1px 1px 3px black;
     text-align: center;
-    margin-right: 10px;
     border: solid 1px #777777;
     color: #777777; 
     -webkit-transition:background-color 0.3s ease;
