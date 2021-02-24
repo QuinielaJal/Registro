@@ -183,9 +183,9 @@ function allowcombination(){
     else
     {
         combinations= false;
-        document.getElementById("checkcombinaciones").style.backgroundColor = "rgb(200,200,200,0.2)";
+        document.getElementById("checkcombinaciones").style.backgroundColor = "rgb(255,255,255,0.35)";
         document.getElementById("checkcombinaciones").style.border = "#afafaf solid 1px";
-        document.getElementById("checkcombinaciones").style.color = "#656565";
+        document.getElementById("checkcombinaciones").style.color = "#777777";
         document.getElementById("checkcombinaciones").style.fontWeight = "";
         clean();
     }

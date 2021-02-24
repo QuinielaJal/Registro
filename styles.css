@@ -159,18 +159,17 @@ h2,h3{
 }
 
 #checkcombinaciones{
-    height: 26px;
-    width: 29px;
-    background: rgb(200,200,200,0.35);  
+    height: 28px;
+    width: 28px;
+    background: rgb(255,255,255,0.35);  
     border-radius: 4px;
-    padding: 2px 0px 1px;
-    font-size: 9px;
+    padding: 3px 0px 3px;
+    font-size: 8px;
     box-shadow: 1px 1px 3px black;
     text-align: center;
     margin-right: 10px;
-    border: solid 1px #afafaf;
+    border: solid 1px #777777;
     color: #656565; 
-    font-weight: bold;
 }
 
 #undo{
