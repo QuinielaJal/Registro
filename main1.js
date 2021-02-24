@@ -182,7 +182,7 @@ function allowcombination(){
     else
     {
         combinations= false;
-        document.getElementById("checkcombinaciones").style.backgroundColor = "rgb(255,255,255,0.35)";
+        document.getElementById("checkcombinaciones").style.backgroundColor = "rgb(255,255,255,0.7)";
         document.getElementById("checkcombinaciones").style.border = "#777777 solid 1px";
         document.getElementById("checkcombinaciones").style.color = "#777777";
         clean();

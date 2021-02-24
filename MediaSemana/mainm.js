@@ -5,7 +5,7 @@ let combinations = false;
 var aux;
 
 function start(){
-    //document.getElementById("checkcombinaciones").checked = false;
+    document.getElementById("checkcombinaciones").checked = false;
     recovername();
     display = document.getElementById("display");
     let width = document.getElementsByClassName('quiniela')[0].offsetWidth;
@@ -175,11 +175,20 @@ function clearname(){
 
 function allowcombination(){
     if (!combinations) 
-        combinations = confirm("¿Desea registrar quinielas multiples?");
+    {
+        combinations = true; /*confirm("¿Desea registrar quinielas multiples?");*/
+        document.getElementById("checkcombinaciones").style.backgroundColor = "rgb(0,117,255)";
+        document.getElementById("checkcombinaciones").style.border = "black solid 1px";
+        document.getElementById("checkcombinaciones").style.color = "white";
+    }
     else
+    {
         combinations= false;
-    document.getElementById("checkcombinaciones").checked = combinations;
-    clean();
+        document.getElementById("checkcombinaciones").style.backgroundColor = "rgb(255,255,255,0.7)";
+        document.getElementById("checkcombinaciones").style.border = "#777777 solid 1px";
+        document.getElementById("checkcombinaciones").style.color = "#777777";
+        clean();
+    }
 }
 
 function calculate(){
