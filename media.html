@@ -82,10 +82,10 @@
         </div>
         <h1 id="text"></h1>
     </div>
-    <table class="botonera">
+     <table class="botonera">
     <tr>
         <td width="37%">
-            <h2 class="botonenviar" onclick="send()"> Enviar <span>0</span>&nbsp <img src="https://logodownload.org/wp-content/uploads/2015/04/whatsapp-logo-5.png" height="16px"></ion-icon></h2>
+            <h2 class="botonenviar" onclick="send()"> Enviar <span>0</span>&nbsp <img src="https://logodownload.org/wp-content/uploads/2015/04/whatsapp-logo-5.png" height="23px" style="position: fixed;"></ion-icon></h2>
         </td>
         <td width="14%">
             <h2 id="botonlisto" onclick="save()"><ion-icon name="add-outline"></ion-icon></h2>
@@ -101,10 +101,19 @@
         </td>
     </tr>
     </table>
-    <br>
         <!--<input type="checkbox" id="checkcombinaciones" onclick="allowcombination()"><h6> <ion-icon name="apps"></ion-icon></h6>-->
-        <label id="random" onclick="random()">Dobles/Triples</label>
-        <label id="random" onclick="random()">Aleatorio</ion-icon></label>
+        <table style="margin-top: 3px; width:75%">
+            <tr>
+                <td style="width: 50%">
+                    <label id="random" onclick="random()">Aleatorio</ion-icon></label>
+                </td>
+                <td>
+                    <label id="checkcombinaciones" onclick="allowcombination()">
+                        Dobles y Triples
+                    </label>
+                </td>
+            </tr>
+        </table>
         <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
 
         <br><br>
