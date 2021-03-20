@@ -26,6 +26,7 @@ function start(){
     document.getElementById("total").innerHTML = "Total: $" + quantity*25 +"\n";
     if (display.childElementCount > 0)
     display.lastElementChild.innerHTML += `<button id="undo" onclick="remove()"><ion-icon name="arrow-undo-outline"></ion-icon></button>`;
+
 }  
 }
 
@@ -97,7 +98,7 @@ function send(){
     if (!quantity || quantity < 1)
         save();
     if (quantity > 0){
-    let whatsapptext = res.join("%20%20")
+    let whatsapptext = res.join("%20%20");
     whatsapptext = encodeURI(localStorage.getItem("results"));
     whatsapptext = whatsapptext.split('*').join('%0D').replace(/#/g,"");
     window.location.href = "https://wa.me/523317816346?text="+whatsapptext;}
@@ -123,11 +124,17 @@ function save(){
 }
 
 function deleteall(){
-    if(confirm("Se borrará todo"))
+	for (var i = 0; i < 50; i++) {
+		console.log(i);
+		random();
+		save();
+	}
+
+    /*if(confirm("Se borrará todo"))
         {localStorage.setItem("quantity","");
         localStorage.setItem("results","");
         localStorage.setItem("alias","");
-        location.reload();}
+        location.reload();}*/
 }
 
 function clean(){
