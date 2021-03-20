@@ -7,7 +7,7 @@
 
 .quiniela{
     margin: auto;
-    background-image: url("https://scontent.fgdl9-1.fna.fbcdn.net/v/t1.15752-9/151972639_148758123744578_7333660492901974176_n.png?_nc_cat=102&ccb=3&_nc_sid=ae9488&_nc_eui2=AeHDtbjOXKGJPSelK9Ji1i1B0du4u3eVgp3R27i7d5WCndB0E6ryobzqSdQVVheNBIpG6jCT7c6a0x2AdCm-MpaV&_nc_ohc=K_78yIaA3AoAX9OZJ_u&_nc_ht=scontent.fgdl9-1.fna&oh=551c86e50d4d505f43077e3076aa172f&oe=60585067");
+    background-image: url("https://scontent.fgdl9-1.fna.fbcdn.net/v/t1.15752-9/160025834_3832753313487447_4289687907663606098_n.png?_nc_cat=101&ccb=1-3&_nc_sid=ae9488&_nc_eui2=AeGHvh6yNcpD0425Jig6mECDimWZiAV2SHmKZZmIBXZIeWOyNhQE_OZxmByrKw3OnG1m_K-Qg2Lu5AzUhe_OekdW&_nc_ohc=hs8m-hVxS-gAX85DysP&_nc_ht=scontent.fgdl9-1.fna&oh=4e6946f48fa2eaf7a8a57727984bb570&oe=60741EC2");
     background-size: 100%;
     background-repeat: no-repeat;
     max-width: 400px;
@@ -73,7 +73,7 @@ body{
     max-width: 400px;
     margin: auto;
     background-color: rgb(6,12,37);
-    background-image: url("fondo.jpg");
+    background-image: url("https://scontent.fgdl9-1.fna.fbcdn.net/v/t1.15752-9/134130211_145184797408638_5884476686199978814_n.png?_nc_cat=101&ccb=3&_nc_sid=ae9488&_nc_eui2=AeHacUsJcxc2dLEjyN6yRNFnewGJ9Yr5QNZ7AYn1ivlA1mEOk9gwRHq5Tj3AKrDSpGr-c04zas5Q9__A6xiP6NG1&_nc_ohc=M94HwhTNSVsAX90RFSf&_nc_ht=scontent.fgdl9-1.fna&oh=c0fb87fce5bd711405b66de9df125da1&oe=606331B7");
     background-repeat: repeat-y;
     background-position: top;
 }
@@ -88,8 +88,8 @@ h1{
     margin-top: 8%;
     border: solid 1px black;
     border-radius: 0 0 14px 14px;
-    background: -webkit-linear-gradient(0.04turn, black  ,rgb(215,104,14) 80%);
-    background: linear-gradient(0.04turn, black  ,rgb(215,104,14) 80%);
+    background: -webkit-linear-gradient(0.04turn, rgb(8,20,20)  ,rgb(13,105,172) 80%);
+    background: linear-gradient(0.04turn, rgb(8,20,20)  ,rgb(13,105,172) 80%);
     font-size: x-large;
 }
 
