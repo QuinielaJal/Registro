@@ -3,10 +3,9 @@ let quantity = localStorage.getItem('quantity');
 let name = localStorage.getItem("alias");
 let combinations = false;
 var aux;
-var id;
+var id = 0;
 
 function start(){
-	id=0;
     recovername();
     display = document.getElementById("display");
     let width = document.getElementsByClassName('quiniela')[0].offsetWidth;
@@ -22,6 +21,7 @@ function start(){
             if (results[i] && results[i] != undefined){
 
                 let fila = display.insertRow(i);
+
                 if (results[i].split("\xa0\xa0")[0][0]!="L" && results[i].split("\xa0\xa0")[0][0]!="E" && results[i].split("\xa0\xa0")[0][0]!="V")
                 	results[i] = results[i].slice(1);
 
@@ -34,21 +34,25 @@ function start(){
 			    	if (results[i].split("\xa0\xa0")[j].length == 3)
 			    		cell1.style.fontSize = "x-small";
 			    }
+
 			  	let cell2 = fila.insertCell(9);
 			  	cell2.innerHTML += "<pre>" +results[i].split("\xa0\xa0")[9] + "</pre>";
 			  	cell2.style.fontSize = "small";
 			  	cell2.style.overflow = "hidden";
 			  	cell2.style.border = "none";
 			  	cell2.scrollTo(80,0);
+
 			  	if(results[i].split("\xa0\xa0")[9].length > 15)
 			  		cell2.style.fontSize = "xx-small";
 			  	else if(results[i].split("\xa0\xa0")[9].length > 10)
 			  		cell2.style.fontSize = "x-small";
+
 			  	let cell3 = fila.insertCell(10);
 			  	cell3.innerHTML += '<ion-icon name="close-circle" style="color:rgb(120,0,0);"></ion-icon>';
 			  	cell3.style.width = "7%";
 			  	cell3.style.border = "none";
 			  	cell3.id = "x" + i;
+                cell3.className = "deleter"
 			  	cell3.addEventListener('click', function(){remove(this);});
 			} 
             else
@@ -59,45 +63,69 @@ function start(){
 	}  
 }
 
-function updatedisplay(){
-    if (aux == undefined)
-        aux=0;
+function updatedisplay(modo){
+
     let display = document.getElementById("display");
     let lastIndex = display.getElementsByTagName("tr").length;
-    let fila = display.insertRow(lastIndex);
 
-    for (var j =0; j < 9; j++) {
-    	cell1 = fila.insertCell(j)
-    	cell1.innerHTML += res[j];
-    	if (res[j].length == 2)
-    		cell1.style.fontSize = "small";
-    	if (res[j].length == 3)
-    		cell1.style.fontSize = "x-small";
+    if (modo == 1){
+        if (aux == undefined)
+            aux=0;
+        
+        let fila = display.insertRow(lastIndex);
+
+        for (var j =0; j < 9; j++) {
+        	cell1 = fila.insertCell(j)
+        	cell1.innerHTML += res[j];
+        	cell1.style.width = "7%";
+        	if (res[j].length == 2)
+        		cell1.style.fontSize = "small";
+        	if (res[j].length == 3)
+        		cell1.style.fontSize = "x-small";
+        }
+
+        if (aux>1){
+    		var cellname = fila.insertCell(9);
+    		cellname.innerHTML += name + " (" + aux + ")";}
+    	else{
+    		var cellname = fila.insertCell(9);
+    		cellname.innerHTML += name;}
+
+      	cellname.style.fontSize = "small";
+      	cellname.style.overflow = "hidden";
+      	cellname.style.border = "none";
+      	cellname.scrollTo(80,0);
+
+    	if(name.length > 15)
+      		cellname.style.fontSize = "xx-small";
+      	else if(name.length > 10)
+      		cellname.style.fontSize = "x-small";
+
+    	let cell3 = fila.insertCell(10);
+      	cell3.innerHTML += '<ion-icon name="close-circle" style="color:rgb(120,0,0);"></ion-icon>';
+      	cell3.style.width = "7%";
+      	cell3.style.border = "none";
+      	cell3.id = "x" + id;
+        cell3.className = "deleter";
+      	cell3.addEventListener('click', function(){remove(this);});
+      	id++;
+        aux = 1;
+        //cell1.innerHTML += res.join("\xa0\xa0") + "\xa0\xa0" + name + " (" + aux + ")" + "*\xa0\xa0";
     }
-    if (aux>1){
-		var cellname = fila.insertCell(9);
-		cellname.innerHTML += name + " (" + aux + ")";}
-	else{
-		var cellname = fila.insertCell(9);
-		cellname.innerHTML += name;}
-  	cellname.style.fontSize = "small";
-  	cellname.style.overflow = "hidden";
-  	cellname.style.border = "none";
-  	cellname.scrollTo(80,0);
-	if(name.length > 15)
-  		cellname.style.fontSize = "xx-small";
-  	else if(name.length > 10)
-  		cellname.style.fontSize = "x-small";
-	let cell3 = fila.insertCell(10);
-  	cell3.innerHTML += '<ion-icon name="close-circle" style="color:rgb(120,0,0);"></ion-icon>';
-  	cell3.style.width = "7%";
-  	cell3.style.border = "none";
-  	cell3.id = "x" + id;
-  	cell3.addEventListener('click', function(){remove(this);});
-  	id++;
-    //cell1.innerHTML += res.join("\xa0\xa0") + "\xa0\xa0" + name + " (" + aux + ")" + "*\xa0\xa0";
+    else if (modo == 2){
+    	console.log("modo2");
+    	console.log(lastIndex,"l");
+        id = 0;
+        deleters = display.getElementsByClassName("deleter");
+        console.log(deleters);
+        for (var i = 0; i < lastIndex ;i++) {
+        	console.log(i,"i");
+            deleters[i].id = "x" + id;
+            id++;
+        }
+
+    }
     document.getElementById("total").innerHTML = "Total: $" + quantity*25;
-    aux = 1;
 }
 
 function selection(element){ 		//Pinta la casilla y actualiza el texto de la quiniela.
@@ -166,21 +194,25 @@ function result(){ 				//Actualiza el localstorage cuando se añade una nueva qu
 }
 
 function save(){				//Se añade la quiniela actual a la lista 
-    name = document.getElementById("nombre").value;
-    if (res.join("\xa0\xa0").includes("_"))
-        alert("Debes llenar todas las casillas");
-    else if (!name){
-        alert("Debes elegir un nombre");
-        document.getElementById("nombre").focus();
-        return 0;}
-    else{
-        if (combinations)
-            calculate();
-        else
-            number();
-        result();
-        updatedisplay();
-        clean();}
+	if(id < 150){
+	    name = document.getElementById("nombre").value;
+	    if (res.join("\xa0\xa0").includes("_"))
+	        alert("Debes llenar todas las casillas");
+	    else if (!name){
+	        alert("Debes elegir un nombre");
+	        document.getElementById("nombre").focus();
+	        return 0;}
+	    else{
+	        if (combinations)
+	            calculate();
+	        else
+	            number();
+	        result();
+	        updatedisplay(1);
+	        clean();}
+    }
+    else
+    	alert("Envía tus quinielas registradas antes de capturar más");
 }
 
 function clean(){				//Boton para limpiar la quinela
@@ -292,11 +324,9 @@ function remove(e){
     //console.log(results);
     results = results.join("*");
     localStorage.setItem("results",results);
-    display.innerHTML = "";
-    console.log("bien")
     document.querySelector('.botonenviar span').textContent = quantity;
     document.getElementById("total").innerHTML = "Total: $" + quantity*25 +"\n";
-    start();
+    updatedisplay(2);
 
 }
 
