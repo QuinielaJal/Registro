@@ -77,6 +77,7 @@ function updatedisplay(modo){
         for (var j =0; j < 9; j++) {
         	cell1 = fila.insertCell(j)
         	cell1.innerHTML += res[j];
+        	cell1.style.width = "7%";
         	if (res[j].length == 2)
         		cell1.style.fontSize = "small";
         	if (res[j].length == 3)
@@ -211,7 +212,7 @@ function save(){				//Se añade la quiniela actual a la lista
 	        clean();}
     }
     else
-    	alert("NO");
+    	alert("Envía tus quinielas registradas antes de capturar más");
 }
 
 function clean(){				//Boton para limpiar la quinela
