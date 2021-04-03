@@ -177,12 +177,12 @@ h2,h3{
     transition:background-color 0.3s ease;
 }
 
-#undo{
+/*#undo{
     float: right;
     background:  linear-gradient(0,  rgb(250, 200, 200) 20%, rgb(255, 255, 255) 90%);
     border-radius: 4px;
     padding: 2px;
-}
+}*/
 
 
 p{
