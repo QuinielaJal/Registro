@@ -60,9 +60,9 @@
     width: 34.1%;
     height: 100%;
     display: inline-flex;
-
-
 }
+
+
 .partido{
     display: flex;
     height: 6.67%;
@@ -195,12 +195,19 @@ p{
     background-color: rgba(255, 255, 240, 0.4);
     border-radius: 5px;
     text-align: left;
-    margin-top: 10px;
     padding: 5px 0px;
-
     margin: 15px 0;
-    table-layout: fixed;
+    table-layout: fixed;   
 }
+
+/*.cellname{
+    font-size: small;
+    overflow: scroll;
+    border: none;
+}*/
+
+
+
 
 #display td{
     border-right: 1px solid rgb(0,0,0,0.2);

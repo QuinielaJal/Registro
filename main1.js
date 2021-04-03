@@ -38,8 +38,10 @@ function start(){
 			  	let cell2 = fila.insertCell(9);
 			  	cell2.innerHTML += "<pre>" +results[i].split("\xa0\xa0")[9] + "</pre>";
 			  	cell2.style.fontSize = "small";
-			  	cell2.style.overflow = "hidden";
+			  	cell2.style.overflow = "scroll";
+			  	cell2.style.overflowY = "hidden";
 			  	cell2.style.border = "none";
+			  	cell2.className = "cellname";
 			  	cell2.scrollTo(80,0);
 
 			  	if(results[i].split("\xa0\xa0")[9].length > 15)
@@ -53,7 +55,7 @@ function start(){
 			  	cell3.style.border = "none";
 			  	cell3.id = "x" + i;
                 cell3.className = "deleter"
-			  	cell3.addEventListener('click', function(){remove(this);});
+			  	cell3.addEventListener('click', function(){remove(this);  this.replaceWith(this.cloneNode(true));});
 			} 
             else
                 break;
@@ -92,8 +94,10 @@ function updatedisplay(modo){
     		cellname.innerHTML += name;}
 
       	cellname.style.fontSize = "small";
-      	cellname.style.overflow = "hidden";
+      	cellname.style.overflow = "scroll";
+      	cellname.style.overflowY = "hidden";
       	cellname.style.border = "none";
+      	cellname.className = "cellname";
       	cellname.scrollTo(80,0);
 
     	if(name.length > 15)
@@ -107,19 +111,15 @@ function updatedisplay(modo){
       	cell3.style.border = "none";
       	cell3.id = "x" + id;
         cell3.className = "deleter";
-      	cell3.addEventListener('click', function(){remove(this);});
+      	cell3.addEventListener('click', function(){remove(this); this.replaceWith(this.cloneNode(true));});
       	id++;
         aux = 1;
         //cell1.innerHTML += res.join("\xa0\xa0") + "\xa0\xa0" + name + " (" + aux + ")" + "*\xa0\xa0";
     }
     else if (modo == 2){
-    	console.log("modo2");
-    	console.log(lastIndex,"l");
         id = 0;
         deleters = display.getElementsByClassName("deleter");
-        console.log(deleters);
         for (var i = 0; i < lastIndex ;i++) {
-        	console.log(i,"i");
             deleters[i].id = "x" + id;
             id++;
         }
@@ -305,13 +305,16 @@ function remove(e){
 	display = document.getElementById("display");
 	//console.log(e.id.slice(1));
 	//console.log(display.getElementsByTagName("tr"));
-	display.getElementsByTagName("tr")[e.id.slice(1)].remove();
+	eindex = e.id.slice(1);
+	tr = display.getElementsByTagName("tr")[eindex];
+
+	display.deleteRow(eindex);
+
+
     results = localStorage.getItem("results");
-    //console.log(results);
-    //console.log(results.split("*"));
     results = results.split("*");
 
-	removing = results[e.id.slice(1)].split("\xa0\xa0");
+	removing = results[eindex].split("\xa0\xa0");
 	//console.log("removing",removing);
 	if (removing[0][0]!="L" && removing[0][0]!="E" && removing[0][0]!="V")
         removing[0] = removing[0].slice(1);
@@ -320,10 +323,11 @@ function remove(e){
         aux3*= removing[i].length;
     quantity -= aux3;
     localStorage.setItem("quantity",quantity);
-	results.splice(e.id.slice(1),1);
+	results.splice(eindex,1);
     //console.log(results);
     results = results.join("*");
     localStorage.setItem("results",results);
+
     document.querySelector('.botonenviar span').textContent = quantity;
     document.getElementById("total").innerHTML = "Total: $" + quantity*25 +"\n";
     updatedisplay(2);
